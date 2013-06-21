@@ -1,0 +1,4 @@
+bool useGroundContactDetection
+bool useGroundContactDetectionForLEDs
+bool useGroundContactDetectionForSafeStates
+bool useGroundContactDetectionForSensorCalibration

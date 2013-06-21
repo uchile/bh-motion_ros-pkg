@@ -1,0 +1,19 @@
+BikeEngineOutput bikeEngineOutput
+CognitionFrameInfo cognitionFrameInfo
+FallDownState fallDownState
+JointData filteredJointData    #en verdad es un jointData
+JointData filteredJointDataPrev #tambien
+SensorData filteredSensorData #SensorData
+GroundContactState groundContactState
+HeadJointRequest headJointRequest
+JointRequest jointRequest
+KeyStates keyStates
+MotionInfo motionInfo
+MotionRobotHealth motionRobotHealth
+OdometryData odometryData
+RobotModel robotModel
+TorsoMatrix torsoMatrix
+
+uint64 cont
+
+# //Shared MotionToCognition representations

@@ -1,0 +1,90 @@
+/** game state switcher and felldown detector */
+option body_control 
+{
+  common decision 
+  {    
+    if(game.penalty != none)
+      goto penalized;
+    else if (game.state == _initial)
+      goto state_initial;
+    else if (game.state == finished)          
+      goto state_finished;
+    else 
+    {
+      if(fall_down_state != upright && fall_down_state != undefined)
+        goto stand_up;
+      else
+      {
+        if (game.state == ready)
+          goto state_ready;
+        else if (game.state == set)
+          goto state_set;
+        else if (game.state == playing)
+          goto state_playing;
+      }
+    }
+  }
+
+  initial state state_initial 
+  {
+    action
+    {
+      head.control_mode = look_up;
+      motion.type = stand;
+    }
+  }
+  
+  state stand_up
+  {
+    action
+    {
+      stand_up();
+    }
+  }
+
+  state state_ready 
+  {
+    action
+    {
+      head.control_mode = look_down;
+      motion.type = stand;
+    }
+  }
+
+  state state_set 
+  {
+    action
+    {
+      head.control_mode = look_up;
+      motion.type = stand;
+    }
+  }
+
+  state state_playing
+  {
+    action
+    {
+      playing_goalie();
+      //playing_striker();
+      //initial_position();
+    }
+  }
+
+  state state_finished 
+  {
+    action
+    {
+      head.control_mode = look_up;
+      motion.type = stand;    
+    }
+  }
+
+  state penalized
+  {
+    action
+    {
+      head.control_mode = look_down;
+      motion.type = stand;
+    }
+  }
+}

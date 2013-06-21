@@ -1,0 +1,55 @@
+/***
+Title: CodeRelease B-Human Soccer 2011
+Platform: Nao
+Software-Environment: B-Human framework
+
+in random order, symbols first
+*/
+
+include "../CommonSymbols/math_symbols.xabsl";
+include "../CommonSymbols/motion_symbols.xabsl";
+include "../CommonSymbols/sound_symbols.xabsl";
+include "../CommonSymbols/key_symbols.xabsl";
+
+include "Symbols/ball_symbols.xabsl";
+include "Symbols/bike_symbols.xabsl";
+include "Symbols/fall_down_symbols.xabsl";
+include "Symbols/field_symbols.xabsl";
+include "Symbols/game_symbols.xabsl";
+include "Symbols/goal_symbols.xabsl";
+include "Symbols/head_symbols.xabsl";
+include "Symbols/head_control_symbols.xabsl";
+include "Symbols/behavior_led_symbols.xabsl";
+include "Symbols/locator_symbols.xabsl";
+include "Symbols/obstacle_symbols.xabsl";
+
+/* Debugging */
+include "Options/Debugging/official_button_interface.xabsl";
+include "Options/Debugging/display_control.xabsl";
+include "Options/Debugging/display_obstacle.xabsl";
+
+/* HeadControl */
+include "Options/HeadControl/head_control.xabsl";
+include "Options/HeadControl/look_at_ball.xabsl";
+include "Options/HeadControl/look_down.xabsl";
+include "Options/HeadControl/look_up.xabsl";
+include "Options/HeadControl/look_up_and_down.xabsl";
+include "Options/HeadControl/look_left_and_right.xabsl";
+include "Options/HeadControl/look_at_goal.xabsl";
+include "Options/HeadControl/look_tracker_ball.xabsl";
+include "Options/HeadControl/look_visual_goal.xabsl";
+
+/* Skills */
+include "Options/Skills/special_action.xabsl";
+include "Options/Skills/stand_up.xabsl";
+
+/* Soccer */
+include "Options/Soccer/body_control.xabsl";
+include "Options/Soccer/start_soccer.xabsl";
+include "Options/Soccer/Striker/playing_striker.xabsl";
+include "Options/Soccer/Goalie/playing_goalie.xabsl";
+include "Options/Soccer/Goalie/blocking.xabsl";
+include "Options/initial_position.xabsl";
+
+/** CodeRelease 2011 B-Human Soccer Agent */
+agent soccer("Soccer", start_soccer);

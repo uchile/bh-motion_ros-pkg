@@ -1,0 +1,49 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\b bh_motion 
+
+<!-- 
+Provide an overview of your package.
+-->
+1. Modify the CMakelist file with you cross toolchain path (# PLEASE MODIFY ACCORDING YOU CTC PATH) 
+
+2. Add package to ros path
+	$ rosws set $your_clone_path
+
+3. Build the package
+	$ make bh_motion
+
+4. Goto package dir
+	$ roscd bh_motion
+
+5. Copy nodes and lib to the NAO 
+	$ scp bin/*Node nao@ip:/home/nao
+	$ scp lib/*.so nao@ip:/home/nao  
+
+7. Copy Config folder
+	$scp -rp src/bh_src/Config nao@ip:/home/nao/.config/naoqi/Data
+
+
+8. Add user library at autoload.ini file onto the NAO
+	$nano /home/nao/naoqi/preferences/autoload.ini
+        	(user)
+		/home/libuchileqiprocess.so
+
+9. Restart naoqi with verbose (it is necesary only the first time)
+
+10. Conect with NAO via SSH. Do not forget follow the installation tutorial http://www.ros.org/wiki/nao/Tutorials/Cross-Compiling_NAO-V4
+   Run this script on every opened term on the NAO where some ROS instance will be executed 
+	$ cd	
+	$ . ./setupPaths_NaoROS.sh
+ 
+11. run ros and nodes
+	$roscore
+	$./bh_motion
+	$./exampleNode  
+
+-->
+
+
+*/

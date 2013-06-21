@@ -1,0 +1,1657 @@
+// Intermediate code for the agents of CodeRelease B-Human Soccer 2011
+
+1
+head.control_mode 18 head.control_mode.none head.control_mode.look_active head.control_mode.look_active_with_ball head.control_mode.look_active_without_ball head.control_mode.look_at_ball head.control_mode.look_down head.control_mode.look_left head.control_mode.look_scan_area_in_front head.control_mode.look_up head.control_mode.look_up_and_down head.control_mode.look_down_left_and_right head.control_mode.look_at_kicker head.control_mode.look_at_global_ball head.control_mode.look_active_synced head.control_mode.look_keeper head.control_mode.look_at_ball_duel head.control_mode.look_left_and_right head.control_mode.look_at_ball_supporter
+2
+e head.control_mode head.control_mode
+b locator.wtr
+
+14
+body_control 0
+display_control 0
+display_obstacle 0
+head_control 0
+look_at_ball 0
+look_down 0
+look_up 0
+look_up_and_down 0
+my_walk 0
+official_button_interface 0
+playing_striker 0
+special_action 2 e motion.special_action special_action.id b special_action.mirror
+stand_up 0
+start_soccer 0
+
+7
+state_initial n
+stand_up n
+state_ready n
+state_set n
+state_playing n
+state_finished n
+penalized n
+
+state_initial
+0
+2
+e head.control_mode
+v head.control_mode.look_up 
+e motion.type
+v motion.type.stand 
+i
+!
+c
+o game.penalty
+v game.penalty.none 
+t penalized
+i
+c
+o game.state
+v game.state._initial 
+t state_initial
+i
+c
+o game.state
+v game.state.finished 
+t state_finished
+i
+& 2
+!
+c
+i fall_down_state
+0
+v fall_down_state.upright 
+!
+c
+i fall_down_state
+0
+v fall_down_state.undefined 
+t stand_up
+i
+c
+o game.state
+v game.state.ready 
+t state_ready
+i
+c
+o game.state
+v game.state.set 
+t state_set
+i
+c
+o game.state
+v game.state.playing 
+t state_playing
+t state_initial
+0
+1
+o stand_up
+0
+i
+!
+c
+o game.penalty
+v game.penalty.none 
+t penalized
+i
+c
+o game.state
+v game.state._initial 
+t state_initial
+i
+c
+o game.state
+v game.state.finished 
+t state_finished
+i
+& 2
+!
+c
+i fall_down_state
+0
+v fall_down_state.upright 
+!
+c
+i fall_down_state
+0
+v fall_down_state.undefined 
+t stand_up
+i
+c
+o game.state
+v game.state.ready 
+t state_ready
+i
+c
+o game.state
+v game.state.set 
+t state_set
+i
+c
+o game.state
+v game.state.playing 
+t state_playing
+t stand_up
+0
+2
+e head.control_mode
+v head.control_mode.look_down 
+e motion.type
+v motion.type.stand 
+i
+!
+c
+o game.penalty
+v game.penalty.none 
+t penalized
+i
+c
+o game.state
+v game.state._initial 
+t state_initial
+i
+c
+o game.state
+v game.state.finished 
+t state_finished
+i
+& 2
+!
+c
+i fall_down_state
+0
+v fall_down_state.upright 
+!
+c
+i fall_down_state
+0
+v fall_down_state.undefined 
+t stand_up
+i
+c
+o game.state
+v game.state.ready 
+t state_ready
+i
+c
+o game.state
+v game.state.set 
+t state_set
+i
+c
+o game.state
+v game.state.playing 
+t state_playing
+t state_ready
+0
+2
+e head.control_mode
+v head.control_mode.look_up 
+e motion.type
+v motion.type.stand 
+i
+!
+c
+o game.penalty
+v game.penalty.none 
+t penalized
+i
+c
+o game.state
+v game.state._initial 
+t state_initial
+i
+c
+o game.state
+v game.state.finished 
+t state_finished
+i
+& 2
+!
+c
+i fall_down_state
+0
+v fall_down_state.upright 
+!
+c
+i fall_down_state
+0
+v fall_down_state.undefined 
+t stand_up
+i
+c
+o game.state
+v game.state.ready 
+t state_ready
+i
+c
+o game.state
+v game.state.set 
+t state_set
+i
+c
+o game.state
+v game.state.playing 
+t state_playing
+t state_set
+0
+1
+o playing_striker
+0
+i
+!
+c
+o game.penalty
+v game.penalty.none 
+t penalized
+i
+c
+o game.state
+v game.state._initial 
+t state_initial
+i
+c
+o game.state
+v game.state.finished 
+t state_finished
+i
+& 2
+!
+c
+i fall_down_state
+0
+v fall_down_state.upright 
+!
+c
+i fall_down_state
+0
+v fall_down_state.undefined 
+t stand_up
+i
+c
+o game.state
+v game.state.ready 
+t state_ready
+i
+c
+o game.state
+v game.state.set 
+t state_set
+i
+c
+o game.state
+v game.state.playing 
+t state_playing
+t state_playing
+0
+2
+e head.control_mode
+v head.control_mode.look_up 
+e motion.type
+v motion.type.stand 
+i
+!
+c
+o game.penalty
+v game.penalty.none 
+t penalized
+i
+c
+o game.state
+v game.state._initial 
+t state_initial
+i
+c
+o game.state
+v game.state.finished 
+t state_finished
+i
+& 2
+!
+c
+i fall_down_state
+0
+v fall_down_state.upright 
+!
+c
+i fall_down_state
+0
+v fall_down_state.undefined 
+t stand_up
+i
+c
+o game.state
+v game.state.ready 
+t state_ready
+i
+c
+o game.state
+v game.state.set 
+t state_set
+i
+c
+o game.state
+v game.state.playing 
+t state_playing
+t state_finished
+0
+2
+e head.control_mode
+v head.control_mode.look_down 
+e motion.type
+v motion.type.stand 
+i
+!
+c
+o game.penalty
+v game.penalty.none 
+t penalized
+i
+c
+o game.state
+v game.state._initial 
+t state_initial
+i
+c
+o game.state
+v game.state.finished 
+t state_finished
+i
+& 2
+!
+c
+i fall_down_state
+0
+v fall_down_state.upright 
+!
+c
+i fall_down_state
+0
+v fall_down_state.undefined 
+t stand_up
+i
+c
+o game.state
+v game.state.ready 
+t state_ready
+i
+c
+o game.state
+v game.state.set 
+t state_set
+i
+c
+o game.state
+v game.state.playing 
+t state_playing
+t penalized
+
+
+
+1
+display n
+
+display
+0
+1
+o display_obstacle
+0
+t display
+
+
+
+2
+nothing n
+blink n
+
+nothing
+0
+0
+i
+>
+i obstacle.distance_to_closest_center
+0
+v 500
+t nothing
+i
+l
+i obstacle.distance_to_closest_center
+0
+v 500
+t blink
+t nothing
+0
+1
+e behavior_led_request.rightEar
+v behavior_led_request.state.blinking 
+i
+>
+i obstacle.distance_to_closest_center
+0
+v 500
+t nothing
+i
+l
+i obstacle.distance_to_closest_center
+0
+v 500
+t blink
+t blink
+
+
+
+5
+none n
+look_at_ball n
+look_down n
+look_up n
+look_up_and_down n
+
+none
+0
+0
+i
+c
+o head.control_mode
+v head.control_mode.none 
+t none
+i
+c
+o head.control_mode
+v head.control_mode.look_at_ball 
+t look_at_ball
+i
+c
+o head.control_mode
+v head.control_mode.look_down 
+t look_down
+i
+c
+o head.control_mode
+v head.control_mode.look_up 
+t look_up
+i
+c
+o head.control_mode
+v head.control_mode.look_up_and_down 
+t look_up_and_down
+t none
+0
+1
+o look_at_ball
+0
+i
+c
+o head.control_mode
+v head.control_mode.none 
+t none
+i
+c
+o head.control_mode
+v head.control_mode.look_at_ball 
+t look_at_ball
+i
+c
+o head.control_mode
+v head.control_mode.look_down 
+t look_down
+i
+c
+o head.control_mode
+v head.control_mode.look_up 
+t look_up
+i
+c
+o head.control_mode
+v head.control_mode.look_up_and_down 
+t look_up_and_down
+t look_at_ball
+0
+1
+o look_down
+0
+i
+c
+o head.control_mode
+v head.control_mode.none 
+t none
+i
+c
+o head.control_mode
+v head.control_mode.look_at_ball 
+t look_at_ball
+i
+c
+o head.control_mode
+v head.control_mode.look_down 
+t look_down
+i
+c
+o head.control_mode
+v head.control_mode.look_up 
+t look_up
+i
+c
+o head.control_mode
+v head.control_mode.look_up_and_down 
+t look_up_and_down
+t look_down
+0
+1
+o look_up
+0
+i
+c
+o head.control_mode
+v head.control_mode.none 
+t none
+i
+c
+o head.control_mode
+v head.control_mode.look_at_ball 
+t look_at_ball
+i
+c
+o head.control_mode
+v head.control_mode.look_down 
+t look_down
+i
+c
+o head.control_mode
+v head.control_mode.look_up 
+t look_up
+i
+c
+o head.control_mode
+v head.control_mode.look_up_and_down 
+t look_up_and_down
+t look_up
+0
+1
+o look_up_and_down
+0
+i
+c
+o head.control_mode
+v head.control_mode.none 
+t none
+i
+c
+o head.control_mode
+v head.control_mode.look_at_ball 
+t look_at_ball
+i
+c
+o head.control_mode
+v head.control_mode.look_down 
+t look_down
+i
+c
+o head.control_mode
+v head.control_mode.look_up 
+t look_up
+i
+c
+o head.control_mode
+v head.control_mode.look_up_and_down 
+t look_up_and_down
+t look_up_and_down
+
+
+
+2
+look_at_estimate n
+look_up_and_down n
+
+look_at_estimate
+0
+6
+e head.mode
+v head.mode.target_on_ground 
+e head.ccmode
+v head.ccmode.autoCamera 
+d head.target.x
+i ball.x
+0
+d head.target.y
+i ball.y
+0
+d head.target.z
+v 35
+d head.speed
+v 100
+i
+>
+i ball.time_since_last_seen
+0
+v 2500
+t look_up_and_down
+t look_at_estimate
+0
+1
+o look_up_and_down
+0
+i
+i ball.was_seen
+0
+t look_at_estimate
+t look_up_and_down
+
+
+
+1
+down n
+
+down
+0
+5
+e head.ccmode
+v head.ccmode.lowerCamera 
+e head.mode
+v head.mode.pan_tilt 
+d head.pan
+v 0
+d head.tilt
+v -5
+d head.speed
+v 150
+t down
+
+
+
+1
+look_up n
+
+look_up
+0
+5
+e head.mode
+v head.mode.pan_tilt 
+e head.ccmode
+v head.ccmode.lowerCamera 
+d head.pan
+v 0
+d head.tilt
+v 30
+d head.speed
+v 150
+t look_up
+
+
+
+2
+up n
+down n
+
+up
+0
+5
+e head.mode
+v head.mode.pan_tilt 
+e head.ccmode
+v head.ccmode.lowerCamera 
+d head.pan
+v 0
+d head.tilt
+v 25
+d head.speed
+v 120
+i
+>
+s
+v 700
+t down
+t up
+0
+4
+e head.mode
+v head.mode.pan_tilt 
+d head.pan
+v 0
+d head.tilt
+v -25
+d head.speed
+v 120
+i
+>
+s
+v 700
+t up
+t down
+
+
+
+4
+search_for_ball n
+turn_to_ball n
+walk_to_ball n
+nothing n
+
+search_for_ball
+0
+6
+e motion.type
+v motion.type.walk 
+d motion.walk_target.x
+v 0
+d motion.walk_target.y
+v 0
+d motion.walk_target.rot
+q
+<
+i ball.y
+0
+v 0
+v -180
+v 180
+d motion.walk_speed
+v 50
+e head.control_mode
+v head.control_mode.look_up_and_down 
+i
+i ball.was_seen
+0
+t turn_to_ball
+t search_for_ball
+0
+6
+e motion.type
+v motion.type.walk 
+d motion.walk_target.x
+v 0
+d motion.walk_target.y
+v 0
+d motion.walk_target.rot
+i ball.angle
+0
+d motion.walk_speed
+v 50
+e head.control_mode
+v head.control_mode.look_up_and_down 
+i
+>
+i ball.time_since_last_seen
+0
+v 7000
+t search_for_ball
+i
+<
+i abs
+1
+d abs.value
+i ball.angle
+0
+v 5
+t walk_to_ball
+t turn_to_ball
+0
+6
+e motion.type
+v motion.type.walk 
+d motion.walk_target.x
+i ball.x
+0
+d motion.walk_target.y
+i ball.y
+0
+d motion.walk_target.rot
+i ball.angle
+0
+d motion.walk_speed
+v 100
+e head.control_mode
+q
+<
+%
+s
+v 6000
+v 3000
+v head.control_mode.look_at_ball 
+v head.control_mode.look_up_and_down 
+i
+>
+i ball.time_since_last_seen
+0
+v 7000
+t search_for_ball
+i
+<
+i ball.distance
+0
+v 500
+t nothing
+t walk_to_ball
+0
+0
+i
+>
+i ball.time_since_last_seen
+0
+v 7000
+t search_for_ball
+t nothing
+
+
+
+10
+set_nothing n
+set_initial n
+set_playing n
+set_penalised n
+set_penalised_initial n
+set_unpenalised n
+set_red n
+set_blue n
+set_kickoff_own n
+set_kickoff_opp n
+
+set_nothing
+0
+0
+i
+& 2
+i key.chest_button_pressed_and_released
+0
+c
+o game.state
+v game.state._initial 
+t set_penalised_initial
+i
+& 3
+i key.chest_button_pressed_and_released
+0
+!
+c
+o game.state
+v game.state._initial 
+c
+o game.penalty
+v game.penalty.none 
+t set_penalised
+i
+& 2
+i key.chest_button_pressed_and_released
+0
+!
+c
+o game.penalty
+v game.penalty.none 
+t set_unpenalised
+i
+& 3
+i key.left_foot_pressed_and_released
+0
+c
+o game.state
+v game.state._initial 
+c
+o game.team_color
+v game.team_color.blue 
+t set_red
+i
+& 3
+i key.left_foot_pressed_and_released
+0
+c
+o game.state
+v game.state._initial 
+c
+o game.team_color
+v game.team_color.red 
+t set_blue
+i
+& 4
+i key.right_foot_pressed_and_released
+0
+c
+o game.state
+v game.state._initial 
+!
+c
+o game.kickoff_team
+o game.team_color
+c
+o game.secondary_state
+v game.secondary_state.normal 
+t set_kickoff_own
+i
+& 4
+i key.right_foot_pressed_and_released
+0
+c
+o game.state
+v game.state._initial 
+c
+o game.kickoff_team
+o game.team_color
+c
+o game.secondary_state
+v game.secondary_state.penaltyshoot 
+t set_kickoff_opp
+t set_nothing
+0
+1
+e game.state
+v game.state._initial 
+i
+>
+s
+v 500
+t set_nothing
+t set_initial
+0
+1
+e game.state
+v game.state.playing 
+i
+>
+s
+v 500
+t set_nothing
+t set_playing
+0
+2
+e game.penalty
+v game.penalty.manual 
+e sound
+v sound.penalized 
+i
+>
+s
+v 500
+t set_nothing
+t set_penalised
+0
+3
+e game.state
+v game.state.playing 
+e game.penalty
+v game.penalty.manual 
+e sound
+v sound.penalized 
+i
+>
+s
+v 500
+t set_nothing
+t set_penalised_initial
+0
+2
+e game.penalty
+v game.penalty.none 
+e sound
+v sound.not_penalized 
+i
+>
+s
+v 500
+t set_nothing
+t set_unpenalised
+0
+2
+e sound
+v sound.red 
+e game.team_color
+v game.team_color.red 
+i
+>
+s
+v 1500
+t set_nothing
+t set_red
+0
+2
+e sound
+v sound.blue 
+e game.team_color
+v game.team_color.blue 
+i
+>
+s
+v 1500
+t set_nothing
+t set_blue
+0
+3
+e sound
+v sound.own_kickoff 
+e game.kickoff_team
+o game.team_color
+e game.secondary_state
+v game.secondary_state.normal 
+i
+>
+s
+v 1500
+t set_nothing
+t set_kickoff_own
+0
+3
+e sound
+v sound.opponent_kickoff 
+e game.kickoff_team
+i game.opponent_team_color
+0
+e game.secondary_state
+v game.secondary_state.normal 
+i
+>
+s
+v 1500
+t set_nothing
+t set_kickoff_opp
+
+
+
+9
+start n
+turn_to_ball n
+walk_to_ball n
+align_to_goal n
+align_behind_ball n
+check_pose n
+search_for_ball n
+prepare_kick n
+kick n
+
+start
+0
+2
+e motion.type
+v motion.type.stand 
+e head.control_mode
+v head.control_mode.look_up 
+i
+>
+s
+v 1000
+t turn_to_ball
+t start
+0
+6
+e motion.type
+v motion.type.walk 
+d motion.walk_target.x
+v 0
+d motion.walk_target.y
+v 0
+d motion.walk_target.rot
+i ball.angle
+0
+d motion.walk_speed
+v 50
+e head.control_mode
+v head.control_mode.look_up_and_down 
+i
+>
+i ball.time_since_last_seen
+0
+v 7000
+t search_for_ball
+i
+<
+i abs
+1
+d abs.value
+i ball.angle
+0
+v 5
+t walk_to_ball
+t turn_to_ball
+0
+6
+e motion.type
+v motion.type.walk 
+d motion.walk_target.x
+i ball.x
+0
+d motion.walk_target.y
+i ball.y
+0
+d motion.walk_target.rot
+i ball.angle
+0
+d motion.walk_speed
+v 100
+e head.control_mode
+q
+<
+%
+s
+v 6000
+v 3000
+v head.control_mode.look_at_ball 
+v head.control_mode.look_up_and_down 
+i
+>
+i ball.time_since_last_seen
+0
+v 7000
+t search_for_ball
+i
+<
+i ball.distance
+0
+v 500
+t align_to_goal
+t walk_to_ball
+0
+6
+e motion.type
+v motion.type.walk 
+d motion.walk_target.x
+-
+i ball.x
+0
+v 400
+d motion.walk_target.y
+i ball.y
+0
+d motion.walk_target.rot
+i opponent_goal.free_part.angle_to_center
+0
+d motion.walk_speed
+v 100
+e head.control_mode
+q
+<
+%
+s
+v 4000
+v 2000
+v head.control_mode.look_up_and_down 
+v head.control_mode.look_at_ball 
+i
+>
+i ball.time_since_last_seen
+0
+v 7000
+t search_for_ball
+i
+& 2
+<
+i abs
+1
+d abs.value
+i opponent_goal.free_part.angle_to_center
+0
+v 10
+<
+i abs
+1
+d abs.value
+i ball.y
+0
+v 100
+t align_behind_ball
+t align_to_goal
+0
+6
+e motion.type
+v motion.type.walk 
+d motion.walk_target.x
+-
+i ball.x
+0
+v 150
+d motion.walk_target.y
+-
+i ball.y
+0
+v 30
+d motion.walk_target.rot
+i opponent_goal.free_part.angle_to_center
+0
+d motion.walk_speed
+v 80
+e head.control_mode
+v head.control_mode.look_at_ball 
+i
+>
+i ball.time_since_last_seen
+0
+v 7000
+t search_for_ball
+i
+& 2
+i between
+3
+d between.value
+i ball.y
+0
+d between.min
+v 20
+d between.max
+v 50
+i between
+3
+d between.value
+i ball.x
+0
+d between.min
+v 140
+d between.max
+v 170
+t check_pose
+t align_behind_ball
+0
+6
+e motion.type
+v motion.type.walk 
+d motion.walk_target.x
+-
+i ball.x
+0
+v 150
+d motion.walk_target.y
+-
+i ball.y
+0
+v 30
+d motion.walk_target.rot
+i opponent_goal.free_part.angle_to_center
+0
+d motion.walk_speed
+v 50
+e head.control_mode
+v head.control_mode.look_up_and_down 
+i
+>
+i ball.time_since_last_seen
+0
+v 10000
+t search_for_ball
+i
+& 3
+>
+s
+v 2000
+| 2
+i opponent_goal.was_seen
+0
+>
+s
+v 5000
+<
+i abs
+1
+d abs.value
+i opponent_goal.free_part.angle_to_center
+0
+v 2
+t prepare_kick
+t check_pose
+0
+6
+e motion.type
+v motion.type.walk 
+d motion.walk_target.x
+v 0
+d motion.walk_target.y
+v 0
+d motion.walk_target.rot
+q
+<
+i ball.y
+0
+v 0
+v -180
+v 180
+d motion.walk_speed
+v 50
+e head.control_mode
+v head.control_mode.look_up_and_down 
+i
+i ball.was_seen
+0
+t turn_to_ball
+t search_for_ball
+0
+2
+e motion.type
+v motion.type.stand 
+b motion.bike.mirror
+v true
+i
+i motion.kick_forward
+4
+d motion.kick_forward.x
+i ball.x
+0
+d motion.kick_forward.y
+i ball.y
+0
+b motion.kick_forward.mirror
+v false
+b motion.kick_forward.updates
+v true
+t kick
+t prepare_kick
+0
+1
+e motion.type
+v motion.type.bike 
+i
+>
+s
+v 3000
+t start
+t kick
+
+
+
+4
+special_action n
+special_action_in_progress n
+finished n
+aborted n
+
+special_action
+0
+4
+e motion.type
+v motion.type.special_action 
+b motion.special_action.mirror
+p special_action.mirror
+e motion.special_action
+p special_action.id
+e motion.last_special_action
+p special_action.id
+i
+& 4
+>
+s
+v 100
+c
+i executed_motion.type
+0
+v motion.type.special_action 
+c
+i executed_motion.special_action
+0
+o motion.special_action
+| 2
+& 2
+i executed_motion.special_action.mirror
+0
+p special_action.mirror
+& 2
+!
+i executed_motion.special_action.mirror
+0
+!
+p special_action.mirror
+t special_action_in_progress
+i
+>
+s
+v 5000
+t aborted
+t special_action
+0
+1
+e motion.type
+v motion.type.stand 
+i
+!
+c
+i executed_motion.type
+0
+v motion.type.special_action 
+t finished
+t special_action_in_progress
+1
+1
+e motion.type
+v motion.type.stand 
+i
+!
+c
+o motion.last_special_action
+p special_action.id
+t special_action
+t finished
+1
+1
+e motion.type
+v motion.type.stand 
+t aborted
+
+
+
+6
+lying_down n
+lyingOnBack n
+lyingOnBackMirror n
+lyingOnFront n
+lyingOnSide n
+standing n
+
+lying_down
+0
+1
+e sound
+v sound.none 
+i
+& 2
+c
+i fall_down_state
+0
+v fall_down_state.on_ground 
+c
+i fall_down_direction
+0
+v fall_down_direction.back 
+t lyingOnBack
+i
+& 2
+c
+i fall_down_state
+0
+v fall_down_state.on_ground 
+c
+i fall_down_direction
+0
+v fall_down_direction.front 
+t lyingOnFront
+i
+& 2
+c
+i fall_down_state
+0
+v fall_down_state.on_ground 
+| 2
+c
+i fall_down_direction
+0
+v fall_down_direction.left 
+c
+i fall_down_direction
+0
+v fall_down_direction.right 
+t lyingOnSide
+t lying_down
+0
+3
+e head.control_mode
+v head.control_mode.look_up 
+e sound
+v sound.mario_injury 
+o special_action
+1
+e motion.special_action special_action.id
+v motion.special_action.stand_up_back_nao 
+i
+>
+s
+v 8500
+t standing
+t lyingOnBack
+0
+3
+e head.control_mode
+v head.control_mode.look_up 
+e sound
+v sound.mario_injury 
+o special_action
+2
+e motion.special_action special_action.id
+v motion.special_action.stand_up_back_nao 
+b special_action.mirror
+v true
+i
+>
+s
+v 10000
+t standing
+t lyingOnBackMirror
+0
+3
+e head.control_mode
+v head.control_mode.look_up 
+e sound
+v sound.mario_injury 
+o special_action
+1
+e motion.special_action special_action.id
+v motion.special_action.stand_up_front_nao 
+i
+>
+s
+v 2000
+t standing
+t lyingOnFront
+0
+2
+e head.control_mode
+v head.control_mode.look_up 
+e sound
+v sound.mario_injury 
+i
+>
+s
+v 2000
+t standing
+t lyingOnSide
+1
+0
+i
+& 2
+c
+i fall_down_state
+0
+v fall_down_state.on_ground 
+c
+i fall_down_direction
+0
+v fall_down_direction.back 
+t lyingOnBackMirror
+i
+& 2
+c
+i fall_down_state
+0
+v fall_down_state.on_ground 
+c
+i fall_down_direction
+0
+v fall_down_direction.front 
+t lyingOnFront
+i
+& 2
+c
+i fall_down_state
+0
+v fall_down_state.on_ground 
+| 2
+c
+i fall_down_direction
+0
+v fall_down_direction.left 
+c
+i fall_down_direction
+0
+v fall_down_direction.right 
+t lyingOnSide
+t standing
+
+
+
+4
+sit_down n
+stand_up n
+start_soccer n
+fin n
+
+sit_down
+0
+2
+e motion.type
+v motion.type.special_action 
+e motion.special_action
+v motion.special_action.play_dead 
+i
+| 2
+i key.chest_button_pressed_and_released
+0
+i game.disable_pre_initial
+0
+t stand_up
+t sit_down
+0
+1
+e motion.type
+v motion.type.stand 
+i
+>
+s
+v 1500
+t start_soccer
+t stand_up
+0
+4
+o body_control
+0
+o official_button_interface
+0
+o head_control
+0
+o display_control
+0
+i
+& 2
+| 2
+c
+o game.state
+v game.state.finished 
+& 2
+c
+o game.state
+v game.state._initial 
+<
+i game.time_since_last_package_received
+0
+v 500
+i key.chest_button_pressed_and_released
+0
+t fin
+t start_soccer
+0
+3
+e motion.type
+v motion.type.special_action 
+e motion.special_action
+v motion.special_action.sit_down 
+e head.control_mode
+v head.control_mode.look_up 
+i
+>
+s
+v 2000
+t sit_down
+t fin
+
+
+
+1
+soccer start_soccer

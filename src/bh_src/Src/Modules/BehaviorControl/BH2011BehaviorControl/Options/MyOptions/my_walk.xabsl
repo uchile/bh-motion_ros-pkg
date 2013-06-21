@@ -1,0 +1,78 @@
+/** A test striker in BH2011 without common decision */
+option my_walk
+{
+  initial state search_for_ball
+  {
+    decision
+    {
+      if(ball.was_seen)
+        goto turn_to_ball;
+      else
+        stay;
+    }
+    action
+    {
+      motion.type = walk;
+      motion.walk_target.x = 0;
+      motion.walk_target.y = 0;
+      motion.walk_target.rot = ball.y < 0 ? -180 : 180;
+      motion.walk_speed = 50;
+      head.control_mode = look_up_and_down;
+    }
+  }
+  state turn_to_ball
+  {
+    decision
+    {
+      if(ball.time_since_last_seen > 7000)
+        goto search_for_ball;
+      else if(abs( value = ball.angle ) < 5)
+        goto walk_to_ball;
+      else
+        stay;
+    }
+    action
+    {
+      motion.type = walk;
+      motion.walk_target.x = 0;
+      motion.walk_target.y = 0;
+      motion.walk_target.rot = ball.angle;
+      motion.walk_speed = 50;
+      head.control_mode = look_up_and_down;
+    }
+  }
+  state walk_to_ball
+  {
+    decision
+    {
+      if(ball.time_since_last_seen > 7000)
+        goto search_for_ball;
+      else if(ball.distance < 500)
+        goto nothing;
+      else
+        stay;
+    }
+    action
+    {
+      motion.type = walk;
+      motion.walk_target.x = ball.x;
+      motion.walk_target.y = ball.y;
+      motion.walk_target.rot = ball.angle;
+      motion.walk_speed = 100;
+      head.control_mode = state_time % 6000 < 3000 ? look_at_ball : look_up_and_down;
+    }
+  }
+  state nothing
+  {
+    decision
+    {
+      if(ball.time_since_last_seen > 7000)
+        goto search_for_ball;
+      else
+        stay;
+    }
+    action
+    {
+    }
+  }
+}

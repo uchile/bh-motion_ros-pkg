@@ -1,0 +1,40 @@
+option look_up_and_down
+{
+  initial state up
+  {
+    decision
+    {
+      if (state_time > 700)
+        goto down;
+      else
+        stay;
+    }
+    action
+    {
+      head.mode = pan_tilt;
+      head.ccmode = lowerCamera;
+      head.pan = 0;
+      head.tilt = 25;
+      head.speed = 120;
+    }
+  }
+
+  state down
+  {
+    decision
+    {
+      if (state_time > 700)
+        goto up;
+      else
+        stay;
+    }
+    action
+    {
+      head.mode = pan_tilt;
+      head.ccmode = lowerCamera;
+      head.pan = 0;
+      head.tilt = -25;
+      head.speed = 120;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<package>
+  <description brief="bh_motion">
+
+     The first version of bh_motion package. Soon more test and documentation.
+
+  </description>
+  <author>Leonardo Leottau, Jose Miguel Yañez, Pablo Cano, Matias Mattamala, Universidad de Chile</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/bh_motion</url>
+  <depend package="roscpp"/>
+
+</package>
+
+

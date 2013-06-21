@@ -1,0 +1,95 @@
+/** The base option for the head control behavior */
+option head_control
+{
+  common decision
+  {
+    if(head.control_mode == none)
+      goto none;
+    else if(head.control_mode == look_at_ball)
+      goto look_at_ball;
+    else if(head.control_mode == look_at_goal)
+      goto look_at_goal;
+    else if(head.control_mode == look_down)
+      goto look_down;
+    else if(head.control_mode == look_up)
+      goto look_up;
+    else if(head.control_mode == look_up_and_down)
+      goto look_up_and_down;
+    else if(head.control_mode == look_left_and_right)
+      goto look_left_and_right;
+    else if(head.control_mode == look_tracker_ball)
+      goto look_tracker_ball;
+    else if(head.control_mode == look_visual_goal)
+      goto look_visual_goal;
+  }
+
+  initial state none
+  {
+    action
+    {
+    }
+  }
+
+  state look_at_ball
+  {
+    action
+    {
+      look_at_ball();
+    }
+  }
+  
+  state look_down
+  {
+    action
+    {
+      look_down();
+    }
+  }
+  
+  state look_up
+  {
+    action
+    {
+      look_up();
+    }
+  }
+
+  state look_up_and_down
+  {
+    action
+    {
+      look_up_and_down();
+    }
+  }
+
+  state look_left_and_right
+  {
+    action
+    {
+      look_left_and_right();
+    }
+  }
+
+  state look_tracker_ball
+  {
+     action
+     {
+      look_tracker_ball();
+     }
+  }
+  state look_at_goal
+  {
+    action
+    {
+      look_at_goal();
+    }
+  }
+  
+    state look_visual_goal
+  {
+     action
+     {
+       look_visual_goal();
+     }
+  }
+}
